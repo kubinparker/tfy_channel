@@ -349,14 +349,6 @@ return [
         ],
     ],
 
-    'YouTube' => [
-        'host' => 'https://www.googleapis.com',
-        'client_id' => '780089993966-f4tlmpbh65p0dubomlof6entpejn42gj.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect_uri' => 'YOUR_REDIRECT_URI',
-        'API_KEY' => 'AIzaSyDvrUPh3qvsXUjWR-Ns_gpkXw1-r4vpoZs',
-    ],
-
     /*
      * Configures logging options
      */
