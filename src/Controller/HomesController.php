@@ -119,6 +119,7 @@ class HomesController extends AppController
 
         $list_file = [];
         // $list_file = scandir(WWW_ROOT . 'videos/movies');
+
         // foreach ($list_file as $file) {
         //     if (strpos('DS_Store', $file) !== false || strpos('.', $file) !== false || strpos('..', $file) !== false || !is_dir(WWW_ROOT . 'videos/movies/' . $file)) continue;
         //     // $exp_id = explode('.mp4', $file);
