@@ -93,6 +93,10 @@ if (file_exists(CONFIG . 'app_local.php')) {
     Configure::load('app_local', 'default');
 }
 
+if (file_exists(CONFIG . 'simplehtmldom/simple_html_dom.php')) {
+    include(CONFIG . 'simplehtmldom/simple_html_dom.php');
+}
+
 // Before loading DebugKit
 Configure::write('DebugKit.forceEnable', true);
 

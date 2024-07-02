@@ -6,13 +6,15 @@ from yt_dlp import YoutubeDL
 
 
 #vietmix #vinahouseremix #nhảy_đẹp #gaixinhtiktok #nhạcremix #nhactiktokremix #nhạchay #sexydance #xuhuongtiktok #thinhhanhtiktok
-
+ #tiktokdancevn #xuhuong #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ; #nhacdj
+ 
 def download_and_display():
 
     today = date.today()
 
     ydl_opts = {
         "outtmpl": f"./webroot/videos/movies/%(id)s/%(id)s.%(ext)s",
+        "format": "best"
     }
 
     ydl = YoutubeDL(ydl_opts)

@@ -63,7 +63,7 @@
                     <div class="card border-secondary mb-3">
                         <div class="card-body text-secondary">
                             <p class="card-text">
-                                <a class="btn btn-primary mb-1" data-href="https://www.tiktok.com">#Some</a>
+                                <a class="btn btn-primary mb-1" href="/?HTTP_X_REQUESTED_WITH=XMLHttpRequest" data-href="https://www.tiktok.com">#Some</a>
                                 <a class="btn btn-primary mb-1" data-href="https://www.tiktok.com">#quick</a>
                                 <a class="btn btn-primary mb-1" data-href="https://www.tiktok.com">#example</a>
                                 <a class="btn btn-primary mb-1" data-href="https://www.tiktok.com">#text</a>

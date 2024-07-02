@@ -48,6 +48,59 @@ class HomesController extends AppController
     }
 
 
+    public function getImage(){
+        // $html = file_get_html('https://www.fotor.com/images/inspiration');
+        // $rets = $html->find('.CustomWaterFall_gallery-waterfall-container__1e_OF img');
+        // dd($rets);
+        // foreach ($rets as $key => $ret) {
+        //     // if ($key == 1) break;
+            
+        // }
+    }
+
+    public function getSound()
+    {
+
+        $html = file_get_html('https://nhacdj.vn/nhac-Nonstop-c5.html?page=45');
+        $rets = $html->find('.song-list .song-name a');
+
+        $mh = curl_multi_init();
+        $curl_handles = [];
+
+        foreach ($rets as $key => $ret) {
+            // if ($key == 1) break;
+            $html2 = file_get_html($ret->href);
+            $media = $html2->find('#media-player source')[0];
+            $name = str_replace([' ', '/'], ['_', '_'], $ret->plaintext);
+
+            $src = $media->src;
+            $exp = explode('.', $src);
+            $ext = end($exp);
+            $path_sound = __('{0}sounds/nhacdj/{1}.{2}', WWW_ROOT, $name, $ext);
+            $file_handle = fopen($path_sound, 'w');
+            $ch = curl_init($src);
+
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FILE, $file_handle);
+
+            $curl_handles[] = $ch;
+            curl_multi_add_handle($mh, $ch);
+        }
+
+        $active = null;
+        do {
+            curl_multi_exec($mh, $active);
+        } while ($active > 0);
+
+        foreach ($curl_handles as $ch) {
+            curl_multi_remove_handle($mh, $ch);
+            curl_close($ch);
+        }
+
+        curl_multi_close($mh);
+    }
+
+
     public function index()
     {
 
@@ -64,7 +117,8 @@ class HomesController extends AppController
             exit();
         }
 
-        $list_file = scandir(WWW_ROOT . 'videos/movies');
+        $list_file = [];
+        // $list_file = scandir(WWW_ROOT . 'videos/movies');
         // foreach ($list_file as $file) {
         //     if (strpos('DS_Store', $file) !== false || strpos('.', $file) !== false || strpos('..', $file) !== false || !is_dir(WWW_ROOT . 'videos/movies/' . $file)) continue;
         //     // $exp_id = explode('.mp4', $file);

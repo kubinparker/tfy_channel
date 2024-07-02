@@ -51,6 +51,8 @@ return static function (RouteBuilder $routes) {
          * its action called 'display', and we pass a param to select the view file
          * to use (in this case, templates/Pages/home.php)...
          */
+        $builder->connect('/get-sound', ['controller' => 'Homes', 'action' => 'getSound']);
+        $builder->connect('/get-image', ['controller' => 'Homes', 'action' => 'getImage']);
         $builder->connect('/tiktok-datas', ['controller' => 'Homes', 'action' => 'tiktok_datas']);
         $builder->connect('/save-tiktok-datas', ['controller' => 'Homes', 'action' => 'save_tiktok_datas']);
         $builder->connect('/get-and-save-videos', ['controller' => 'Homes', 'action' => 'get_and_save_videos']);
