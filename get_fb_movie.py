@@ -42,7 +42,8 @@ class DownloadThread(QThread):
             "progress_hooks": [progress_hook]
         }
         ydl = YoutubeDL(ydl_opts)
-        video_url = f'https://www.facebook.com/watch?v={self.movie_id}'
+        # video_url = f'https://www.facebook.com/watch?v={self.movie_id}'
+        video_url = f'https://www.facebook.com/reel/{self.movie_id}'
         try:
             with ydl:
                 ydl.download([video_url])
